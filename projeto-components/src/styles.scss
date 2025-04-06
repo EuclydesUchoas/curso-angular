@@ -3,3 +3,8 @@
 // * {
 //     color-scheme: dark;
 // }
+
+@import "./styles/global_overrides";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
