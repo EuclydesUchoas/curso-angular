@@ -1,5 +1,5 @@
 
-<input id="meu-input" 
+<!-- <input id="meu-input" 
     [value]="inputText" 
     [type]="inputType" 
     [disabled]="isDisabled"
@@ -17,6 +17,13 @@
 
 <br>
 
-<button (click)="logInputText()">Log</button>
+<button (click)="logInputText()">Log</button> -->
+
+<button [attr.title]="buttonTitle">Teste</button>
+<button [title]="buttonTitle">Teste</button>
+
+<button [attr.disabled]="buttonDisable ? true : null">Disabled</button>
+
+<button (click)="onButtonClick()">Mudar Props</button>
 
 <router-outlet />
