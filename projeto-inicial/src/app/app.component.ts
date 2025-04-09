@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  // Event Binding
+
   // inputText = 'Texto Inicial Alterado';
   // inputType = 'text';
   // isDisabled = true;
@@ -41,11 +43,42 @@ export class AppComponent {
   //   console.log(currentText);
   // }
 
-  buttonTitle = 'Título do Botão';
-  buttonDisable = false;
+  // Attribute Binding
 
-  onButtonClick() {
-    this.buttonTitle = 'Título ALTERADO';
-    this.buttonDisable = !this.buttonDisable;
+  // buttonTitle = 'Título do Botão';
+  // buttonDisable = false;
+
+  // onButtonClick() {
+  //   this.buttonTitle = 'Título ALTERADO';
+  //   this.buttonDisable = !this.buttonDisable;
+  // }
+
+  // Style Binding
+
+  widthButton1 = '110px';
+  widthButton2 = 130;
+  stylesObj = { 
+    width: '160px', 
+    backgroundColor: 'grey' 
+  };
+
+  updateStyleObj() {
+    console.log('updateStyleObj');
+
+    this.stylesObj.width = '170px';
+    this.stylesObj.backgroundColor = 'lightblue';
+  }
+
+  updateStyleObjCorrect() {
+    console.log('updateStyleObjCorrect');
+
+    this.stylesObj = { 
+      width: '170px', 
+      backgroundColor: 'lightblue' 
+    };
+  }
+
+  updateWidth() {
+    this.widthButton2 = 200;
   }
 }
