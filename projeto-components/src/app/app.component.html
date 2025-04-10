@@ -1,7 +1,14 @@
 <div class="cards-container">
-  <app-card planType="Simples Teste" [planPriceAlias]="1000"></app-card>
+  <app-card [planType]="cardPlanType" [planPriceAlias]="1000"></app-card>
 
   <app-card-roxo></app-card-roxo>
 </div>
+
+<br>
+
+<input #meuinput
+  type="text"
+  (keyup)="handlePlanType(meuinput.value)"
+  placeholder="Digite o plano" />
 
 <router-outlet />

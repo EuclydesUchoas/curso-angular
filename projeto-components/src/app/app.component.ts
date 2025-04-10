@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  cardPlanType = 'Completo';
-  cardPlanPrice = 200;
+  cardPlanType = 'Simples';
+  cardPlanPrice = 100;
+
+  handlePlanType(text: string) {
+    this.cardPlanType = text;
+  }
 }
