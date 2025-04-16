@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color: grey;
-}
+
+@use '@angular/material' as mat;  
+ 
+// Use the default configuration. 
+$my-typography: mat.m2-define-typography-config();
+@include mat.typography-hierarchy($my-typography);
+
+@import "./styles/utils/text-align-center";
 
 * {
     margin: 0;
