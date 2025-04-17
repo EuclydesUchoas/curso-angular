@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use "./styles/utils/text-align-center";
+
 @use '@angular/material' as mat;  
  
-// Use the default configuration. 
+// Compatibilizar a typography com a versão atual do Angular Material
 $my-typography: mat.m2-define-typography-config();
 @include mat.typography-hierarchy($my-typography);
 
-@import "./styles/utils/text-align-center";
+// Angular Material
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 * {
     margin: 0;
@@ -14,7 +18,3 @@ $my-typography: mat.m2-define-typography-config();
     border: 0;
     box-sizing: border-box;
 }
-
-// Angular Material
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
