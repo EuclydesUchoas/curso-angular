@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,23 +6,52 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild('meuInput')
-  meuInputEl!: ElementRef<HTMLInputElement>;
+export class AppComponent implements AfterViewInit{
+  buttonsList = [
+    'Botão 1',
+    'Botão 2',
+    'Botão 3',
+  ];
 
-  constructor() {
-    console.log('constructor');
-  }
-
-  ngOnInit() {
-    console.log('ngOnInit', this.meuInputEl);
-
-    //this.meuInputEl.nativeElement.focus();
-  }
+  @ViewChildren('meuButton')
+  buttonsEl!: QueryList<ElementRef<HTMLButtonElement>>;
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit', this.meuInputEl);
+    console.log(this.buttonsEl);
 
-    this.meuInputEl.nativeElement.focus();
+    this.buttonsEl.changes.subscribe((result) => {
+      console.log(result);
+    });
+  }
+
+  changeColor(event: Event) {
+    console.log(event);
+
+    const btnElement = event.target as HTMLButtonElement;
+
+    btnElement.style.backgroundColor = 'orange';
+    btnElement.style.color = 'white';
+  }
+
+  resetButtons() {
+    this.buttonsEl.forEach((btnEl) => {
+      console.log(btnEl);
+      btnEl.nativeElement.style.backgroundColor = '';
+      btnEl.nativeElement.style.color = 'black';
+    });
+  }
+
+  first() {
+    // const primeiro = this.buttonsEl.get(0);
+
+    // const primeiro = this.buttonsEl.find((btnEl) => btnEl.nativeElement.className === 'btn-0');
+
+    const primeiro = this.buttonsEl.toArray()[0];
+
+    console.log(primeiro);
+  }
+
+  remove() {
+    this.buttonsList.shift();
   }
 }
