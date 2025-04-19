@@ -1,14 +1,11 @@
-<div class="primo">
-  <!-- Primo: {{ inputPai.value }} -->
+Meu input: <input type="text" #meuInput>
+
+<button (click)="updateInputText()">Atualizar</button>
+
+<button (click)="focus()">Foco</button>
+
+<div #minhaDiv>
+  Conteúdo Inicial.
 </div>
 
-<div class="pai" *ngIf="true">
-  Pai: <input #inputPai ngModel>
-  Pai: {{ inputFilho.value }}
-
-  <div class="filho">
-    Filho: <input #inputFilho ngModel>
-
-    Filho: {{ inputPai.value }}
-  </div>
-</div>
+<button (click)="updateDivContent()">Mudar Conteúdo</button>
