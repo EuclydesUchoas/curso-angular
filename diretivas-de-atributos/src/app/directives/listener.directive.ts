@@ -1,7 +1,7 @@
 import { Directive, HostListener } from "@angular/core";
 
 @Directive({
-    selector: "[appListener]",
+    selector: '[appListener]',
     standalone: false
 })
 export class ListenerDirective {
@@ -14,7 +14,7 @@ export class ListenerDirective {
     onKeyUp(event: Event, param2: string) {
         //console.log('DIGITOU!', event);
         console.log(param2);
-        
+
         const fullText = (event.target as HTMLInputElement).value;
 
         console.log(fullText);
